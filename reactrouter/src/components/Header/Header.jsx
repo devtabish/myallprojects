@@ -1,43 +1,47 @@
 import React from 'react'
-import {Link, Navlink} from 'react-router'
+import {Link, NavLink} from 'react-router'
 
 function Header (){
     return (
-        <header className='shadow sticky z-50 top-0'>
-        <nav className='bg-white border-gray-200 px-4 lg:px-6 py-2.5'>
-          <div className='flex flex-wrap justify-between items-center mx-auto max-w-xl'>
-            <link to="/" className='flex items-center' />
-            <img src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png" alt="Logo" 
-            className='mr-3 h-12' />
-            <div className='flex items-center lg:order-2'>
-             <div className='text-gray-800 hover:bg-gray-50 focus:ring-4 cursor-pointer  focus:ring-gray-300
-              font-medium rounded-lg text-sm px-4 lg-px-5 py-2 lg:py-2.5 mr-2 focus:outline-none'>
-                 <Link t="#"
-              > login</Link>Log in
-              </div>
-            
-             
-              <div className='text-white cursor-pointer bg-orange-700 hover:bg-orange-800 focus-ring-4 font-medium rounded-lg
-              text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus-outline-none'>
-                <Link to="#" 
-               > getstarted</Link> Get Started
-              </div>
-          
-            </div>
-            <div className='hidden justify-between items-center w-full lg:flex lg:w-auto lg-order-1'
-            id='mobile-menu-2'>
-              <ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
-                <li>
-                  <Navlink className={({isActive})=> `block py-2 pr-4 pl-3 duration-200 ${isActive ? 
-                  "text-orange-700":"text-gray-700"} border-b border-gray-100
-                    hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`}>Home</Navlink>
-                </li>
-              </ul>
-            </div>
-            
-          </div>
+         <header className="text-gray-400 bg-gray-900 body-font">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <Link to="/" className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className={`w-10 h-10 text-white p-2 bg-500 rounded-full`}
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span className="ml-3 text-xl">Tailblocks</span>
+        </Link>
+        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          <NavLink to="/" className= {({isActive})=>`mr-5 hover:text-white ${isActive?"text-orange-700":"text-gray-600"}`}>Home</NavLink>
+          <NavLink to="/about" className={({isActive})=>`mr-5 ${isActive?"text-orange-700":"text-gray-600"} hover:text-white`}>Contact</NavLink>
+          <NavLink to="/content" className={({isActive})=>`mr-5 ${isActive?"text-orange-700":"text-gray-600"} hover:text-white`}>Content</NavLink>
+          <NavLink to="/github" className={({isActive})=>`mr-5 ${isActive?"text-orange-700":"text-gray-600"} hover:text-white`}>Github</NavLink>
         </nav>
-      </header>
+        <button className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+          Button
+          <svg
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </header>
     )
 }
 export default Header
